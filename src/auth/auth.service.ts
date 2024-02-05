@@ -66,6 +66,8 @@ export class AuthService {
     };
   }
 
+  async logout(userId: string) {}
+
   async changePassword(changePassword: ChangePassword){
 
     const token = await this.userRecoveryRepository.find({
