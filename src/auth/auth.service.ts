@@ -117,7 +117,7 @@ export class AuthService {
     const emailInfo = await this.sendRecoveryEmail(email, recoveryToken.token);
 
     // Devolver una respuesta o información si es necesario
-    return;
+    return 'Correo Enviado';
   }
 
   async sendRecoveryEmail(to: string, token: string) {
