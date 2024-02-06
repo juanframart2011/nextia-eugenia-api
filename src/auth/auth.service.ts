@@ -63,6 +63,7 @@ export class AuthService {
       name: user.name,
       last_name: user.last_name,
       rol: user.rol_id,
+      no_department:user.no_department
     };
   }
 
