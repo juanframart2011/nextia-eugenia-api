@@ -1,6 +1,6 @@
 import { Role } from './role.entity';
 import { Column, CreateDateColumn, DeleteDateColumn, ManyToOne, Entity, OneToOne, JoinColumn, OneToMany } from 'typeorm'
-import { UserRecovery } from './user-recovery.entity';
+import { Invitation } from 'src/invitations/entities/invitation.entity';
 
 @Entity()
 export class User {
@@ -28,4 +28,7 @@ export class User {
     @ManyToOne(() => Role, role => role.users)
     @JoinColumn({ name: "rol_id" })
     role: Role;
+
+    @OneToMany(() => Invitation, invitation => invitation.user)
+    invitations: Invitation[];
 }

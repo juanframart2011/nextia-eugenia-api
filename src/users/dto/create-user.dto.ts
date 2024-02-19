@@ -28,5 +28,5 @@ export class CreateUserDto {
 
   @IsNotEmpty({ message: 'El campo de número de departamento no puede estar vacío.' })
   @Transform(({value}) => value.trim())
-  no_department: number;
+  no_department: string;
 }
