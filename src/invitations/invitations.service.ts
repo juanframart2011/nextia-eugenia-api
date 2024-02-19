@@ -25,7 +25,7 @@ export class InvitationsService {
       skip: (page - 1) * limit,
     });
   
-    return results; // o { results, total, page, limit };
+    return { results, total, page, limit };
   }
 
   findOne(id: number,userId:number) {
