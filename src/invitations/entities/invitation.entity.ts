@@ -6,7 +6,7 @@ export class Invitation {
     @Column({ primary: true, generated: true })
     id: number;
     @Column({ nullable: false })
-    user_id: string;
+    user_id: number;
     @Column({ nullable: false })
     name: string;
     @Column({ type: 'timestamp', nullable: false })
