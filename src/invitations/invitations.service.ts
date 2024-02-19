@@ -39,7 +39,7 @@ export class InvitationsService {
 
   async update(id: number, updateInvitationDto: UpdateInvitationDto, userId:number) {
     try {
-      // Intenta encontrar la invitación con el ID y userID proporcionados.
+      
       const invitationResult = await this.invitationRepository.findOneOrFail({
           where: {
               id: id,
@@ -47,10 +47,9 @@ export class InvitationsService {
           },
       });
 
-      // Si se encuentra la invitación, actualízala con los nuevos datos.
       var updatedInvitation = await this.invitationRepository.save({
-          ...invitationResult, // Propaga los valores existentes
-          ...updateInvitationDto, // Sobrescribe con los valores actualizados
+          ...invitationResult,
+          ...updateInvitationDto,
       });
 
       return updatedInvitation;
@@ -60,7 +59,20 @@ export class InvitationsService {
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} invitation`;
+  async remove(id: number, userId:number) {
+    try {
+      
+      const invitationResult = await this.invitationRepository.findOneOrFail({
+          where: {
+              id: id,
+              user_id: userId,
+          },
+      });
+
+      return await this.invitationRepository.softDelete(id);
+    } catch (error) {
+        // Si no se encuentra la invitación, findOneOrFail arrojará un error.
+        throw new NotFoundException(`No existe el invitado`);
+    }
   }
 }

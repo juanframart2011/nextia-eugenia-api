@@ -43,7 +43,8 @@ export class InvitationsController {
 
   @UseGuards(AuthGuard)
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.invitationsService.remove(+id);
+  remove(@Request() req,@Param('id') id: string) {
+    var userId = req.user.sub;
+    return this.invitationsService.remove(+id,userId);
   }
 }
