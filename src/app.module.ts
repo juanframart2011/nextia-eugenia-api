@@ -12,11 +12,11 @@ import { InvitationsModule } from './invitations/invitations.module';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql', // Cambia esto por tu base de datos
-      host: process.env.DATABASE_HOST,
-      port: parseInt(process.env.DATABASE_PORT),
-      username: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_NAME,
+      host: '104.237.149.181',
+      port: 3306,
+      username: 'root',
+      password: 'Mysql784754*-',
+      database: 'nexti-eugenia-api',
       //entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/migrations/*.ts'],
       migrationsTableName: "migration_table",
