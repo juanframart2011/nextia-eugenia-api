@@ -9,12 +9,10 @@ export class Invitation {
     user_id: number;
     @Column({ nullable: false })
     name: string;
-    @Column({ nullable: true, type: 'text' })
-    qr: string;
-    @Column()
-    entry_date: string;
-    @Column()
-    expiration: string;
+    @Column({ type: 'timestamp', nullable: false })
+    entry_date: Date;
+    @Column({ type: 'timestamp', nullable: false })
+    expiration: Date;
     @CreateDateColumn()
     created_at: Date;
     @DeleteDateColumn({ type: 'timestamp', nullable: true })
