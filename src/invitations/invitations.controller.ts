@@ -10,9 +10,16 @@ export class InvitationsController {
 
   @UseGuards(AuthGuard)
   @Post()
-  create(@Request() req,@Body() createInvitationDto: CreateInvitationDto) {
+  async create(@Request() req,@Body() createInvitationDto: CreateInvitationDto) {
 
     createInvitationDto.user_id = req.user.sub;
+
+    var qroceGenerate = createInvitationDto.name + '' + createInvitationDto.user_id;
+    
+    // Generar el QR y actualizar el usuario
+    const qrCode = await this.invitationsService.generateQrCode(qroceGenerate.toString()); // Usando el ID del usuario como dato único
+    createInvitationDto.qr = qrCode;
+
     return this.invitationsService.create(createInvitationDto);
   }
 

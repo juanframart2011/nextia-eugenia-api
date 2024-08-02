@@ -9,6 +9,8 @@ export class Invitation {
     user_id: number;
     @Column({ nullable: false })
     name: string;
+    @Column({ nullable: true, type: 'text' })
+    qr: string;
     @Column({ type: 'timestamp', nullable: false })
     entry_date: Date;
     @Column({ type: 'timestamp', nullable: false })
