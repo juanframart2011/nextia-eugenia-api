@@ -11,9 +11,9 @@ export class Invitation {
     name: string;
     @Column({ nullable: true, type: 'text' })
     qr: string;
-    @Column({ type: 'timestamp', nullable: false })
+    @Column()
     entry_date: Date;
-    @Column({ type: 'timestamp', nullable: false })
+    @Column()
     expiration: Date;
     @CreateDateColumn()
     created_at: Date;
