@@ -11,7 +11,7 @@ export class Invitation {
     name: string;
     @Column({ type: 'timestamp', nullable: false })
     entry_date: Date;
-    @Column({ type: 'timestamp', nullable: false })
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP', nullable: false })
     expiration: Date;
     @CreateDateColumn()
     created_at: Date;

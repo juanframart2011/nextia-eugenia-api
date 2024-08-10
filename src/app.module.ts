@@ -17,7 +17,7 @@ import { InvitationsModule } from './invitations/invitations.module';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      //entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/migrations/*.ts'],
       migrationsTableName: "migration_table",
       synchronize: true,
